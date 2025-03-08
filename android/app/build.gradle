@@ -1,0 +1,38 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'  // Keep this one for Kotlin support
+    id 'dev.flutter.flutter-gradle-plugin'  // Keep this for Flutter
+}
+
+android {
+    namespace = "com.example.flutter_application_2_4"
+    compileSdkVersion 34  // Or the version you're using
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    defaultConfig {
+        applicationId = "com.example.flutter_application_2_4"
+        minSdkVersion 21  // Set the minimum SDK you are targeting
+        targetSdkVersion 33  // Match the target SDK version you need
+        versionCode flutter.versionCode
+        versionName flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../../"
+}
