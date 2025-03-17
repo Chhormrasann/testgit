@@ -20,7 +20,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.flutter_application_2_4"
-        minSdkVersion 21  // Set the minimum SDK you are targeting
+        minSdkVersion 23 // Set the minimum SDK you are targeting
         targetSdkVersion 33  // Match the target SDK version you need
         versionCode flutter.versionCode
         versionName flutter.versionName
@@ -36,3 +36,5 @@ android {
 flutter {
     source = "../../"
 }
+
+apply plugin: 'com.google.gms.google-services'

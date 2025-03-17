@@ -13,10 +13,9 @@ class Bottomnav extends StatefulWidget {
 }
 
 class _BottomnavState extends State<Bottomnav> {
+  int currentTabIndex = 0;
 
-  int currentTabIndex=0;
-
-  late List <Widget> pages;
+  late List<Widget> pages;
   late Widget currentPage;
   late Home homepage;
 
@@ -26,47 +25,52 @@ class _BottomnavState extends State<Bottomnav> {
 
   @override
   void initState() {
-       homepage=Home();
-       order=Order();
-       profile=Profile();
-       wallet=Wallet();
+    homepage = Home();
+    order = Order();
+    profile = Profile();
+    wallet = Wallet();
 
-       pages=[homepage, order, wallet, profile,];
+    pages = [
+      homepage,
+      order,
+      wallet,
+      profile,
+    ];
     super.initState();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
-        height: 50,
-        backgroundColor: Colors.white,
-        color: Colors.amber,
-        animationDuration: Duration(milliseconds: 500),
-        onTap: (int index){
-          setState(() {
-            currentTabIndex=index;
-          });
-        },
-        items:[
-        Icon(
-          Icons.home_outlined,
-          color: Colors.black,
-          ),
-          Icon(
-            Icons.shopping_bag_outlined,
-            color: Colors.black,
+          height: 50,
+          backgroundColor: Colors.white,
+          color: Colors.amber,
+          animationDuration: Duration(milliseconds: 500),
+          onTap: (int index) {
+            setState(() {
+              currentTabIndex = index;
+            });
+          },
+          items: [
+            Icon(
+              Icons.home_outlined,
+              color: Colors.black,
             ),
-          Icon(
-            Icons.wallet_giftcard_outlined, 
-            color: Colors.black,
+            Icon(
+              Icons.shopping_bag_outlined,
+              color: Colors.black,
             ),
-          Icon(
-            Icons.person_outlined,
-            color: Colors.black,
+            Icon(
+              Icons.wallet_giftcard_outlined,
+              color: Colors.black,
             ),
-        ]),
-        body: pages[currentTabIndex],
+            Icon(
+              Icons.person_outlined,
+              color: Colors.black,
+            ),
+          ]),
+      body: pages[currentTabIndex],
     );
   }
 }
